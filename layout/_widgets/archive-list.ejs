@@ -8,22 +8,18 @@
                 <span class="archive-year-post-count">[<%= postYear.postList.length %>]</span>
             </div>
             <ul class="article-list">
-              <% postYear.postList.forEach(post => { %>
-                <% if (!cachedDate || cachedDate != date(post.date, 'MM-DD')) { %>
-                    <% cachedDate = date(post.date, 'MM-DD') %>
+              <% postYear.postList.forEach((post, index) => { %>
+                <% if (!cachedDate || cachedDate !== date(post.date, 'MM-DD')) { %>
+                    <% if (index !== 0) { %></li><% } %>
                     <li class="article-item" date-is='<%= date(post.date, 'MM-DD') %>'>
                 <% } %>
-                <% if (cachedDate == date(post.date, 'MM-DD')) { %>
+                <div class="article-title-container <%= cachedDate === date(post.date, 'MM-DD') ? 'subsequent-article' : '' %>">
                     <a href="<%- url_for(post.path) %>">
                         <span class="article-title"><%= post.title %></span>
                     </a>
-                <% } else {%>
-                    <% cachedDate = date(post.date, 'MM-DD') %>
-                    <a href="<%- url_for(post.path) %>">
-                        <span class="article-title"><%= post.title %></span>
-                    </a>
-                </li>
-                <% } %>
+                </div>
+                <% cachedDate = date(post.date, 'MM-DD') %>
+                <% if (index === postYear.postList.length - 1) { %></li><% } %>
               <% }) %>
             </ul>
         </section>

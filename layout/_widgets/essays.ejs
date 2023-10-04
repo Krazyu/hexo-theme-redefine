@@ -9,12 +9,16 @@
         <% for (const e of newessays) { %>
             <li class="w-full flex flex-row relative">
                 <div class="w-10 h-10 mr-4 rounded-lg overflow-hidden border border-border-color p-[1px] flex-shrink-0"><%- image_tag(theme.defaults.avatar, {class: "w-full h-full rounded-[6.2px]"}) %></div>
-                <div class="w-full border-border-color rounded-xl rounded-tl-none redefine-box-shadow-flat overflow-hidden">
-                    <div class="px-4 py-1.5 text-sm border-b border-border-color bg-zinc-50 dark:bg-zinc-800 text-third-text-color"><%- moment(e.date).locale(config.language).calendar() %></div>
+                <div class="w-full border-border-color rounded-xl redefine-box-shadow-flat overflow-hidden relative">
                     <div id="shuoshuo-content" class="px-4 py-2"><%- markdown(e.content) %></div>
+                    <hr class="px-4 my-2 border-b border-border-color border-solid">
+                    <div class="px-4 py-1.5 text-sm border-border-color text-third-text-color flex items-center">
+                        <i class="fa-solid fa-calendar-days"></i>&nbsp; 
+                        <%- e.date %>
+                    </div>                    
                 </div>
-                <div class=" absolute left-[50.5px] top-3 transform w-2 h-2 border-solid border-t border-l bg-zinc-50 -rotate-45 border-border-color dark:bg-zinc-800"></div>
             </li>
         <% } %>
     </ul>
 </div>
+<div class="border border-sky-500"></div>

@@ -7,11 +7,6 @@
                     <%- image_tag(theme.defaults.logo) %>
                 </a>
             <% } %>
-            <a class="logo-title" href="<%= config.root %>">
-                <%- is_home() ? '<h1>' : '' %>
-                <%= theme.info.title || config.title || 'Redefine Theme' %>
-                <%- is_home() ? '</h1>' : '' %>
-            </a>
         </div>
 
         <div class="right">

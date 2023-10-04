@@ -5,6 +5,9 @@ $article-date-font-size = 1rem
 
 @import '../../common/variables'
 
+.subsequent-article
+    margin-top: 18px 
+
 .archive-list-container
   .archive-item
     margin-bottom $spacing-unit
@@ -43,23 +46,24 @@ $article-date-font-size = 1rem
 
       .article-item
         font-size 1rem
-        padding 3em 2em 1em
+        padding 3.2em 2em 1em
         position relative
         color rgba(0, 0, 0, 0.7)
         border-left 2px solid var(--border-color)
 
-        a
-          overflow hidden
-          display block
+        .article-title-container
+          a
+            overflow hidden
+            display block
 
-          .article-title
-            font-size 1.6rem
-            margin-bottom 0.5em
-            color var(--default-text-color)
+            .article-title
+              font-size 1.6rem
+              margin-bottom 0.5em
+              color var(--default-text-color)
 
-          &:hover
-            .article-title, .article-date
-              color var(--primary-color)
+            &:hover
+              .article-title, .article-date
+                color var(--primary-color)
 
         &::before
           content attr(date-is)

@@ -1,24 +1,38 @@
 <div class="mb-4">
     <h1 class="page-title-header"><%= page.title %></h1>
-    <ul class="flex flex-col mb-4 gap-6">
+    <ul class="flex flex-col mb-4 gap-2">
         <%
         const newessays = theme.essays.sort((a, b) => {
             return moment(b.date).diff(a.date);
-          });
+        });
         %>
         <% for (const e of newessays) { %>
-            <li class="w-full flex flex-row relative">
-                <div class="w-10 h-10 mr-4 rounded-lg overflow-hidden border border-border-color p-[1px] flex-shrink-0"><%- image_tag(theme.defaults.avatar, {class: "w-full h-full rounded-[6.2px]"}) %></div>
-                <div class="w-full border-border-color rounded-xl redefine-box-shadow-flat overflow-hidden relative">
+            <li class="w-full flex flex-col relative mb-6">
+                <div class="w-full border-border-color rounded-xl redefine-box-shadow-flat overflow-hidden relative" style="padding: 20px 35px 20px 35px;">
+                    <div class="w-full flex items-center mb-4" style="gap: 15px;">
+                        <div class="w-10 h-10 rounded-lg overflow-hidden border border-border-color p-[1px] flex-shrink-0">
+                            <%- image_tag(theme.defaults.avatar, {class: "w-full h-full rounded-[6.2px]"}) %>
+                        </div>
+                        <div class="ml-4" style="margin-top: 0px;">
+                            <p class="text-base font-bold mb-1" style="margin-bottom: 0px;">风宇</p>
+                            <div class="flex items-center text-sm">
+                                <i class="fa-solid fa-calendar-days"></i>&nbsp; 
+                                <%- e.date %>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="
+                        height: 1px;
+                        background: linear-gradient(to right, 
+                                                rgb(79, 103, 212) 0%, 
+                                                rgba(102, 204, 255, 1) 40%, 
+                                                rgb(72, 199, 222, 1) 60%, 
+                                                rgba(255, 69, 0, 0.6) 100%);
+                        border-radius: 5px; margin-bottom: 4px;">
+                    </div>
                     <div id="shuoshuo-content" class="px-4 py-2"><%- markdown(e.content) %></div>
-                    <hr class="px-4 my-2 border-b border-border-color border-solid">
-                    <div class="px-4 py-1.5 text-sm border-border-color text-third-text-color flex items-center">
-                        <i class="fa-solid fa-calendar-days"></i>&nbsp; 
-                        <%- e.date %>
-                    </div>                    
                 </div>
             </li>
         <% } %>
     </ul>
 </div>
-<div class="border border-sky-500"></div>

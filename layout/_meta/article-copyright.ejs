@@ -42,5 +42,8 @@
             <% } %>
 
         </li>
+        <% if (page.cover_copyright) { %>
+            <li><strong><%- __('copyright.cover_copyright') %>:</strong> <%- page.cover_copyright %></li>
+          <% } %>          
     </ul>
 </div>

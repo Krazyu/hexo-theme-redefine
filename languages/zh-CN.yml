@@ -67,6 +67,7 @@ rights: 版权所有
 # ----------------------------------------
 copyright:
   title: 标题
+  cover_copyright: 封面来源
   author: 作者
   link: 链接
   create_time: 创建于

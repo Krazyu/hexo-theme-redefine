@@ -5,11 +5,11 @@
         <li><strong><%- __('copyright.author') %>
             :</strong> <%=(typeof page.author === "string" && (page.author)) || page.author?.name || theme.info.author || config.author %></li>
         <li><strong><%- __('copyright.create_time') %>
-            :</strong> <%= date(page.date, `${config.date_format} ${config.time_format}`) %></li>
+            :</strong> <%= date(page.date, `${config.date_format} HH:mm`) %></li>
         <% if (page.updated && page.updated !== page.date) { %>
             <li>
                 <strong><%- __('copyright.update_time') %>
-                    :</strong> <%= date(page.updated, `${config.date_format} ${config.time_format}`) %>
+                    :</strong> <%= date(page.updated, `${config.date_format} HH:mm`) %>
             </li>
         <% } %>
         <li>
